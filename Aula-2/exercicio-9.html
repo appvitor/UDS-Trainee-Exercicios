@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title>Exercício 9</title>
+	<style type="text/css">
+		body {
+			background-color: purple;
+			text-align: center;
+			color: silver;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		9 - (1 ponto) Escreva uma função para ler 2 valores, o sistema deve validar e não permitir valores iguais, e então alertar o maior deles.
+	</p>
+	<script type="text/javascript">
+		function determinarValorMaior() {
+			var valorEmString = "";
+			var valor1EmFloat;
+			var valor2EmFloat;
+			do {
+				valorEmString = prompt("Digite o 1o. valor: ");
+				valorEmString = valorEmString.replace(",",".");
+				valor1EmFloat = parseFloat(valorEmString);
+			} while(valor1EmFloat != valorEmString);
+			do {
+				valorEmString = prompt("Digite o 2o. valor, que deve ser DIFERENTE de " + valor1EmFloat + ":");
+				valorEmString = valorEmString.replace(",",".");
+				valor2EmFloat = parseFloat(valorEmString);
+			} while((valor2EmFloat != valorEmString) || (valor2EmFloat == valor1EmFloat));
+			if (valor1EmFloat > valor2EmFloat){
+				return alert(valor1EmFloat + " é maior do que " + valor2EmFloat);
+			}
+			return alert(valor2EmFloat + " é maior do que " + valor1EmFloat);
+
+		}
+
+		determinarValorMaior();
+	</script>
+</body>
+</html>

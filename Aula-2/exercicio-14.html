@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title>Exercício 14</title>
+	<style type="text/css">
+		body {
+			background-color: purple;
+			text-align: center;
+			color: silver;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		14 - (5 pontos) Crie um objeto que possua uma propriedade números, do tipo array. Esse objeto deve possuir métodos:
+	    que adicione um número a propriedade números;
+	    que receba um número por parâmetro e verifique se ele está presente ou não na propriedade números;
+	    que remova um número já existente ou alerte caso o número não esteja presente na propriedade números;
+	    que retorne os números positivos existentes na propriedade números;
+	    que retorne os números negativos existentes na propriedade números;
+	    que retorne os números pares existentes na propriedade números;
+	    que retorne os números impares existentes na propriedade números;
+	    que retorne a soma dos números existentes na propriedade números;
+	    Observação: Não deve ser possível adicionar valores não números na propriedade números
+	</p>
+	<script type="text/javascript">
+
+		function lerValorNumericoSemRestricao(mensagemInstrutiva) {
+			do {
+				var valorEmString = prompt(mensagemInstrutiva);
+				valorEmString = valorEmString.replace(",",".");
+				var valorEmFloat = parseFloat(valorEmString);
+			} while(valorEmFloat != valorEmString);
+			return(valorEmFloat);
+		}
+
+		function filtrarArray(filtroRequisitado, arrayDeNumeros) {
+			var arrayFiltrado = [];
+			for (var i = 0; i < arrayDeNumeros.length; i++) {
+				switch (filtroRequisitado) {
+					case 1:
+						if (arrayDeNumeros[i] > 0) {
+							arrayFiltrado.push(arrayDeNumeros[i]);
+						}
+					break;
+					case 2:
+						if (arrayDeNumeros[i] < 0) {
+							arrayFiltrado.push(arrayDeNumeros[i]);
+						}					
+					break;
+					case 3:
+						if (arrayDeNumeros[i]%2 == 0) {
+							arrayFiltrado.push(arrayDeNumeros[i]);
+						}					
+					break;
+					case 4:
+						if (arrayDeNumeros[i]%2 != 0) {
+							arrayFiltrado.push(arrayDeNumeros[i]);
+						}					
+					break;
+				}
+			}
+			if(arrayFiltrado.length == 0){	
+				return "Nenhum valor encontrado!";
+			}
+			return arrayFiltrado;
+		}
+
+		var objeto = {
+			numeros: [],
+			adicionarNumeroNoArray: function() {
+				this.numeros.push(lerValorNumericoSemRestricao("Digite um número para ser ADICIONADO ao Array: "));
+			},
+			verificarPresencaNoArray: function() {
+				var dadosDaPresenca = {
+					valorProcurado: lerValorNumericoSemRestricao("Digite um número para ser ENCONTRADO no Array: "),
+					posicaoEncontrada: -1
+				}
+				for (var i = 0; i < this.numeros.length; i++) {
+					if (dadosDaPresenca.valorProcurado == this.numeros[i]) {
+						dadosDaPresenca.posicaoEncontrada = i;
+						return dadosDaPresenca;
+					}
+				}
+				return dadosDaPresenca;
+			},
+			removerNumeroDoArray: function() {
+				var resultadoDaVerificacao = this.verificarPresencaNoArray();
+				if (resultadoDaVerificacao.posicaoEncontrada > -1) {
+					this.numeros.splice(resultadoDaVerificacao.posicaoEncontrada, 1);
+					return alert("Número EXCLUÍDO com sucesso!");
+				}
+				return alert(resultadoDaVerificacao.valorProcurado + " NÃO está presente no Array");
+			},
+			obterApenasNumerosPositivos: function() {
+				alert("Números POSITIVOS do Array: " + filtrarArray(1, this.numeros));
+			},
+			obterApenasNumerosNegativos: function() {
+				alert("Números NEGATIVOS do Array: " + filtrarArray(2, this.numeros));
+			},
+			obterApenasNumerosPares: function() {
+				alert("Números PARES do Array: " + filtrarArray(3, this.numeros));
+			},
+			obterApenasNumerosImpares: function() {
+				alert("Números ÍMPARES do Array: " + filtrarArray(4, this.numeros));
+			},
+			somarValoresDoArray: function() {
+				var somaTotalDosValoresDoArray = 0;
+				for (var i = 0; i < this.numeros.length; i++) {
+					somaTotalDosValoresDoArray = somaTotalDosValoresDoArray + this.numeros[i];
+				}
+				return alert("Soma total dos valores incluídos no Array: " + somaTotalDosValoresDoArray);
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title>Exercício 13</title>
+	<style type="text/css">
+		body {
+			background-color: purple;
+			text-align: center;
+			color: silver;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		13 - (1 ponto) Usando o objeto Date, crie um script que apresente a data no formato: dd/mm/aaaa.
+	</p>
+	<script type="text/javascript">
+
+		function exibirDataAtualFormatada() {
+			var dataAtual = new Date();
+			var dataFormatada = "";
+			if (dataAtual.getDate() < 10) {
+				dataFormatada += "0" + dataAtual.getDate().toString();
+			}
+			else{
+				dataFormatada += dataAtual.getDate().toString();
+			}
+			if ((dataAtual.getMonth()+1) < 10){
+				dataFormatada += "/0" + (dataAtual.getMonth()+1).toString();
+			}
+			else{
+				dataFormatada += "/" + (dataAtual.getMonth()+1).toString();
+			}
+			dataFormatada += "/" + dataAtual.getFullYear().toString();
+			return alert("Data atual: " + dataFormatada);
+		}
+
+		exibirDataAtualFormatada();
+	</script>
+</body>
+</html>

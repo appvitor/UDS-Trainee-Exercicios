@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>3o. Dia UDS Trainee</title>
+    <style type="text/css">
+      body {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        background-color: purple;
+        font-family: "courier";
+        text-align: center;
+        color: silver;
+      }
+      #conteudo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30%;
+      }
+      .botoes {
+        margin: 3%;
+        border: none;
+        background-color: lightblue;
+        font-weight: bold;
+        border-radius: 5%;
+      }
+      #espacoImagens {
+        min-width: 700px;
+        width: 700px;
+        border-radius: 2%;
+        overflow: hidden;
+      }
+      #espacoImagens #imagens {
+        display: flex;
+        flex-wrap: nowrap;
+      }
+      #espacoImagens #imagens img{
+        width: 700px;
+        min-width: 700px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Vítor Pires Corrêa</h1>
+    <div id="conteudo">
+      <button type="button" id="botaoVoltar" class="botoes"><</button>
+      <div id="espacoImagens">
+        <div id="imagens">
+          <img src="imagens/manoplaInfinita.jpg">
+          <img src="imagens/ironMan.jpg">
+          <img src="imagens/blackPanther.jpg">
+          <img src="imagens/doctorStrange.jpg">
+        </div>
+      </div>
+      <button type="button" id="botaoAvancar" class="botoes">></button>
+    </div>
+
+    <script>
+      document.getElementById("botaoAvancar").addEventListener('click', function () {
+        if (document.querySelector('#espacoImagens').scrollLeft >= 2100){
+          document.querySelector('#espacoImagens').scrollLeft = 0;
+        }
+        else {
+          document.querySelector('#espacoImagens').scrollLeft += 700;
+        }
+      });
+      document.getElementById("botaoVoltar").addEventListener('click', function () {
+        if (document.getElementById("espacoImagens").scrollLeft <= 0){
+          document.querySelector('#espacoImagens').scrollLeft = 2800;
+        }
+        else {
+          document.querySelector("#espacoImagens").scrollLeft -= 700;
+        }
+      });
+    </script>
+  </body>
+</html>

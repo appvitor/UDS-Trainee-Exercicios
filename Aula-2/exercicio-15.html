@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title>Exercício 15</title>
+	<style type="text/css">
+		body {
+			background-color: purple;
+			text-align: center;
+			color: silver;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		15 - (10 pontos) Escreva um código que atenda os sequintes requisitos:
+    	Possua um objeto cliente, com as propriedades nome, sexo, data de nascimento, e endereço (sendo um objeto com as propriedades cep, logradouro, número, complemento, bairro, cidade, estado).
+    	Deve possuir um método que alerte todas as informações do cliente.
+    	Possua um objeto produto com as propriedades titulo, descrição e valor. Deve possuir um método que alerte seu nome e valor.
+    	Possua um objeto venda com as propriedades data, cliente, produtos, desconto e acréscimo. 
+    	Deve existir um método que receba um objeto cliente e adicione-o a propriedade cliente. Deve ser possível adicionar n produtos, através de um método, que receba um objeto produto e uma quantidade, e adicione-os na propriedade produtos. Deve existir um método que retorne o um objeto com as propriedades valor dos produtos, e valor total, sendo este, a soma dos valores produtos vezes a quantidade, menos o desconto, mais o acréscimo.
+	</p>
+	<script type="text/javascript">
+
+		function lerValorNumericoSemRestricao(mensagemInstrutiva) {
+			do {
+				var valorEmString = prompt(mensagemInstrutiva);
+				valorEmString = valorEmString.replace(",",".");
+				var valorEmFloat = parseFloat(valorEmString);
+			} while(valorEmFloat != valorEmString);
+			return(valorEmFloat);
+		}
+
+		function obterDataFormatada(dataParaFormatar) {
+			var dataFormatada = "";
+			if (dataParaFormatar.getDate() < 10) {
+				dataFormatada += "0" + dataParaFormatar.getDate().toString();
+			}
+			else{
+				dataFormatada += dataParaFormatar.getDate().toString();
+			}
+			if ((dataParaFormatar.getMonth()+1) < 10){
+				dataFormatada += "/0" + (dataParaFormatar.getMonth()+1).toString();
+			}
+			else{
+				dataFormatada += "/" + (dataParaFormatar.getMonth()+1).toString();
+			}
+			dataFormatada += "/" + dataParaFormatar.getFullYear().toString();
+			return dataFormatada;
+		}
+
+		var cliente = {
+			nome: "Vitor PC",
+			sexoMasculino: false,
+			dataDeNascimento: new Date(),
+			endereco: {
+				cep: "1144",
+				logradouro: "",
+				numero: "",
+				complemento: "",
+				bairro: "",
+				cidade: "",
+				estado: ""
+			},
+			exibirInfoCliente: function() {
+				alert("CLIENTE\n" + 
+					"Nome: " + this.nome + "\n" + 
+					"Sexo: " + this.sexoMasculino + " Data de Nascimento: " + obterDataFormatada(this.dataDeNascimento) + "\n" + 
+					"")
+			}
+		}
+
+		var produto = {
+			titulo: "",
+			descricao: "",
+			valor: 0
+		}
+
+		var venda = {
+			data: Date(),
+			cliente: cliente,
+			produtos: [],
+			desconto: 0,
+			acrescimo: 0
+		}
+
+		cliente.exibirInfoCliente();
+	</script>
+</body>
+</html>

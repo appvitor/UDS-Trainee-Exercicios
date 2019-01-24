@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title>Exercício 6</title>
+	<style type="text/css">
+		body {
+			background-color: purple;
+			text-align: center;
+			color: silver;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		6 - (1 ponto) Escreva uma função para calcular e alertar o número de lâmpadas necessárias para iluminar um determinado cômodo de uma residência. Dados de entrada: a potência da lâmpada utilizada (em watts), as dimensões (largura e comprimento, em metros) do cômodo. Considere que a potência necessária é de 18 watts por metro quadrado. As entradas devem ser inputadas via prompt e não devem aceitar valores não numéricos.
+	</p>
+	<script type="text/javascript">
+
+		function calcularQuantidadeLampadasNecessarias(potenciaLampadas, comprimentoAmbiente, larguraAmbiente) {
+			var totalMetrosQuadrados = comprimentoAmbiente * larguraAmbiente;
+			var totalWattsNecessarios = 18 * totalMetrosQuadrados;
+			var quantidadeLampadasNecessarias = parseInt(totalWattsNecessarios/potenciaLampadas);
+			return alert("Serão necessárias " + quantidadeLampadasNecessarias + " lâmpadas para este ambiente." );
+		}
+
+		var valorEmString = "";
+		do {
+			valorEmString = prompt("Digite a potência das lâmpadas utilizadas em Watts:");
+			valorEmString = valorEmString.replace(",",".");
+			var potenciaLampadasEmFloat = parseFloat(valorEmString);
+		} while(valorEmString != potenciaLampadasEmFloat);
+		do {
+			valorEmString = prompt("Digite o comprimento do ambiente em Metros:");
+			valorEmString = valorEmString.replace(",",".");
+			var comprimentoAmbienteEmFloat = parseFloat(valorEmString);
+		} while(valorEmString != comprimentoAmbienteEmFloat);
+		do {
+			valorEmString = prompt("Digite a largura do ambiente em Metros:");
+			valorEmString = valorEmString.replace(",",".");
+			var larguraAmbienteEmFloat = parseFloat(valorEmString);
+		} while(valorEmString != larguraAmbienteEmFloat);
+
+		calcularQuantidadeLampadasNecessarias(potenciaLampadasEmFloat, comprimentoAmbienteEmFloat, larguraAmbienteEmFloat);
+	</script>
+</body>
+</html>

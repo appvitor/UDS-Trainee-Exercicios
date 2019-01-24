@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title>Exercício 5</title>
+	<style type="text/css">
+		body {
+			background-color: purple;
+			text-align: center;
+			color: silver;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		5 - (1 ponto) Escreva uma função para ler uma temperatura em graus Fahrenheit, calcular e alertar o valor correspondente em graus Celsius. A temperatura deve ser inputada pelo usuário, via prompt.
+	</p>
+	<script type="text/javascript">
+
+		function converterFahrenheitEmCelsius() {
+			var tempFahrenheitEmString = prompt("Digite uma temperatura em graus Fahrenheit:");
+			tempFahrenheitEmString = tempFahrenheitEmString.replace(",", ".");
+			var tempFahrenheit = parseFloat(tempFahrenheitEmString);
+			if(tempFahrenheit == tempFahrenheitEmString) {
+				var tempCelsius = (tempFahrenheit - 32)/1.8;
+				return alert(tempFahrenheit + "°F equivale a " + tempCelsius + "°C");
+			}
+			return alert("Temperatura Fahrenheit inválida!");	
+		}
+
+		converterFahrenheitEmCelsius();
+	</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title>Exercício 4</title>
+	<style type="text/css">
+		body {
+			background-color: purple;
+			text-align: center;
+			color: silver;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		4 - (1 ponto) Escreva uma função que receba um parâmetro e informe se o mesmo é ou não um número inteiro.
+	</p>
+	<script type="text/javascript">
+
+		function validarComoInteiro(valorEmString) {
+			var valorEmInt = parseInt(valorEmString);
+			if (valorEmInt == valorEmString) {
+				return alert( valorEmInt + " é um número inteiro!");
+			}
+			return alert("O valor digitado NÃO é um inteiro!");
+		}
+		
+		var valorEmString = prompt("Digite um número para saber se é inteiro ou não");
+		validarComoInteiro(valorEmString);
+	</script>
+</body>
+</html>

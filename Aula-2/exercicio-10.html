@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title>Exercício 10</title>
+	<style type="text/css">
+		body {
+			background-color: purple;
+			text-align: center;
+			color: silver;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		10 - (1.5 pontos) Escreva uma função que leia 10 valores numéricos, via input, e armazene-os num array.
+	</p>
+	<script type="text/javascript">
+		function armazenarDezNumerosNoArray() {
+			var arrayDosNumeros = [];
+			var valorEmString = "";
+			var valorNumerico;
+			for (var i = 1; i < 11; i++) {
+				do {
+					valorEmString = prompt("Digite o " + i + "o. número: ");
+					valorEmString = valorEmString.replace(",",".");
+					valorNumerico = parseFloat(valorEmString);
+				} while(valorEmString != valorNumerico);
+				arrayDosNumeros.push(valorNumerico);
+			}
+			console.log(arrayDosNumeros);
+		}
+
+		armazenarDezNumerosNoArray();
+	</script>
+</body>
+</html>

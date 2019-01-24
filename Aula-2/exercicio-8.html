@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title>Exercício 8</title>
+	<style type="text/css">
+		body {
+			background-color: purple;
+			text-align: center;
+			color: silver;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		8 - (1 ponto) Escreva uma função que leia o código de origem de um produto, via prompt, e imprima na tela a região de sua procedência conforme a tabela abaixo:
+	    Código 1: Sul
+	    Código 2: Norte
+	    Código 3: Leste
+	    Código 4: Oeste
+	    Código 5 ou 6: Nordeste
+	    Código 7, 8 ou 9: Sudeste
+	    Código 10: Centro-Oeste
+	    Código 11: Noroeste
+	    Observação: Caso o código não seja nenhum dos especificados o produto deve ser encarado como Importado.
+	</p>
+	<script type="text/javascript">
+		function determinarRegiaoDoProduto() {
+			var codigoDoProdutoEmString = prompt("Digite o código de origem do produto: ");
+			var codigoDoProdutoEmInt = parseInt(codigoDoProdutoEmString);
+			if (codigoDoProdutoEmInt == codigoDoProdutoEmString){
+				var origemDoProduto = "";
+				switch (codigoDoProdutoEmInt) {
+					case 1:
+						origemDoProduto = "Sul";
+						break;
+					case 2:
+						origemDoProduto = "Norte";
+						break;
+					case 3:
+						origemDoProduto = "Leste";
+						break;
+					case 4:
+						origemDoProduto = "Oeste";
+						break;
+					case 5:
+					case 6:
+						origemDoProduto = "Nordeste";
+						break;
+					case 7:
+					case 8:
+					case 9:
+						origemDoProduto = "Sudeste";
+						break;
+					case 10:
+						origemDoProduto = "Centro-Oeste";
+						break;
+					case 11:
+						origemDoProduto = "Noroeste";
+						break;
+					default:
+						origemDoProduto = "Importado";
+				}
+				return alert("Origem do Produto: " + origemDoProduto);
+			}
+			return	alert("Código Inválido!")
+		}
+
+		determinarRegiaoDoProduto();
+	</script>
+</body>
+</html>

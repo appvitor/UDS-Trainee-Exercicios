@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title>Exercício 11</title>
+	<style type="text/css">
+		body {
+			background-color: purple;
+			text-align: center;
+			color: silver;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		11 - (1.5 ponos) Escreva uma função que receba o array do exercício anterior e alerte a quantidade de elementos do array que são números negativos.
+	</p>
+	<script type="text/javascript">
+		function armazenarDezNumerosNoArray() {
+			var arrayDosNumeros = [];
+			var valorEmString = "";
+			var valorNumerico;
+			for (var i = 1; i < 11; i++) {
+				do {
+					valorEmString = prompt("Digite o " + i + "o. número: ");
+					valorEmString = valorEmString.replace(",",".");
+					valorNumerico = parseFloat(valorEmString);
+				} while(valorEmString != valorNumerico);
+				arrayDosNumeros.push(valorNumerico);
+			}
+			return arrayDosNumeros;
+		}
+
+		function informarQtdNegativosNoArray(arrayRecebido) {
+			var qtdNegativosNoArray = 0;
+			for (var i = 0; i < arrayRecebido.length; i++) {
+				if (arrayRecebido[i] < 0){
+					qtdNegativosNoArray++;
+				}
+			}
+			return alert("O array inserido possui " + qtdNegativosNoArray + " números negativos");
+		}
+
+		informarQtdNegativosNoArray(armazenarDezNumerosNoArray());
+	</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title>Exercício 3</title>
+	<style type="text/css">
+		body {
+			background-color: purple;
+			text-align: center;
+			color: silver;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		3 - (1 ponto) Escreva uma função que receba um número, via prompt, e alerte se o número é par ou impar.
+	</p>
+	<script type="text/javascript">
+
+		function determinarComoParOuimpar() {
+			var valorEmString = prompt("Digite um número para saber se é par ou ímpar");
+			var valorEmInt = parseInt(valorEmString);
+			if (valorEmInt == valorEmString){
+				if (valorEmInt%2 == 0){
+					return alert(valorEmInt + " é um número PAR!");
+				}
+				return alert(valorEmInt + " é um número ÍMPAR!");
+			}
+			return alert("O conceito de pares e ímpares só é válido para NÚMEROS que sejam INTEIROS!");
+		}
+
+		determinarComoParOuimpar();
+	</script>
+</body>
+</html>

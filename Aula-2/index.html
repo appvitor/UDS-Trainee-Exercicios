@@ -1,0 +1,168 @@
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>2o. Dia UDS Trainee</title>
+  <style>
+    body {
+      background-color: purple;
+      color: silver;
+      font-family: "courier";
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Vítor Pires Corrêa</h1>
+  <h2>Segundo dia UDS Trainee</h2>
+  <h3>JavaScript</h3>
+  <script>
+    var minhaPessoa = {
+      nome: "Vítor",
+      sobreNome: "Pires Corrêa",
+      idade: 23,
+      sexoFeminino: false,
+      peso: 63.2,
+      endereco: {
+        rua: "Rua Fictícia",
+        cep: "87880-990",
+        numero: "69",
+        complemento: "apto 69",
+        bairro: "Bairro Prazeroso",
+        cidade: "Maringá",
+        estado: "PR"
+      },
+      mostrarMinhasInformacoes: function() {
+        alert(
+          "Nome: " + this.nome + " " + this.sobreNome   + "\n"
+          + "Endereço: " + this.endereco.rua + ", " + this.endereco.numero + ", "
+          + this.endereco.complemento + ", " + this.endereco.bairro + "\n"
+          + "CEP: " + this.endereco.cep + "\n"
+          + "Cidade: " + this.endereco.cidade + ", " + this.endereco.estado
+        )
+      }
+    }
+    function converterEmRomano(valor) {
+      switch (valor) {
+        case 1:
+          return("I");
+        case 2:
+          return("II");
+        case 3:
+          return("III");
+        case 4:
+          return("IV");
+        case 5:
+          return("V");
+        case 6:
+          return("VI");
+        case 7:
+          return("VII");
+        case 8:
+          return("VIII");
+        case 9:
+          return("IX");
+        case 10:
+          return("X");
+        default:
+          return("Valor inválido!");
+      }
+    }
+    while (opcao != 9) {
+      var opcao = parseInt(prompt("1 - Informações sobre você\n"+
+      "2 - Sua classificação por idade\n" +
+      "3 - Saber dia da semana\n" +
+      "4 - Converter 1 a 10 em algarismos romanos\n" +
+      "5 - Imprimir 1 a 10 em romanos\n" +
+      "6 - Suas informações pessoais por Arrays\n" +
+      "7 - Suas informações por um Objeto\n" +
+      "9 - Encerrar\n" +
+      "Digite a opção desejada: "));
+      switch (opcao) {
+        case 1:
+          alert("Olá, seu nome nome é " + minhaPessoa.nome + ", \nvocê tem " + minhaPessoa.idade +
+          " anos e pesa " + minhaPessoa.peso + "kg.");
+          break;
+        case 2:
+          if (minhaPessoa.idade <= 18) {
+            alert("Você ainda é novinho...");
+          }
+          else if(minhaPessoa.idade <= 30) {
+            alert("Você é um tiozinho!");
+          }
+          else {
+            alert("Você já é um tiozão!!!");
+          }
+          break;
+        case 3:
+          var diaDaSemana = "";
+          var numeroDiaSemana = new Date().getDay();
+          switch (numeroDiaSemana) {
+            case 0:
+              diaDaSemana = "Domingo";
+              break;
+            case 1:
+              diaDaSemana = "Segunda-feira";
+              break;
+            case 2:
+              diaDaSemana = "Terça-feira";
+              break;
+            case 3:
+              diaDaSemana = "Quarta-feira";
+              break;
+            case 4:
+              diaDaSemana = "Quinta-feira";
+              break;
+            case 5:
+              diaDaSemana = "Sexta-feira";
+              break;
+            case 6:
+              diaDaSemana = "Sábado";
+              break;
+          }
+          alert("Hoje é " + diaDaSemana);
+          break;
+        case 4:
+          var valor = parseInt(prompt("Digite um valor de 1 a 10"));
+          var resultado = converterEmRomano(valor);
+          if(resultado != "Valor inválido!"){
+            alert(valor + " em algarismo romano é " + resultado);
+          }
+          else {
+            alert(resultado);
+          }
+          break;
+        case 5:
+          var frase = "";
+          for (var i = 1; i < 11; i++) {
+            frase = frase + " " + converterEmRomano(i);
+          }
+          var i = 10;
+          frase = frase + "\n";
+          while (i > 0) {
+            frase = frase + " " + converterEmRomano(i);
+            i--;
+          }
+          alert(frase);
+          break;
+        case 6:
+          var infoPessoal = ["Vítor", ["Rua blah", "69", "apto 69", "96969-969"], "96969-6969"];
+          var frase = "";
+          infoPessoal[0] = "Vítor Pires Corrêa";
+          infoPessoal.splice(2, 1);
+          for (var i = 0; i < infoPessoal.length; i++) {
+            frase = frase + infoPessoal[i] + ", ";
+          }
+          alert(frase);
+          break;
+        case 7:
+          minhaPessoa.mostrarMinhasInformacoes();
+          break;
+        case 9:
+          break;
+        default:
+          alert("Opção Inválida!");
+      }
+    }
+  </script>
+</body>
+</html>
